@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class LoginController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('login');
+    }
+
+    public function loginSubmit(Request $request)
+    {
+        $validateData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6|max:12'
+        ]);
+        $email = $request->input('email');
+        $password = $request->input('password');
+        return 'Email : '.$email .'<br/>'.'Password: '.$password;
+    }
+
+
+}
