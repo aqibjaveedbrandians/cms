@@ -6,6 +6,7 @@ use App\Http\Controllers\FluentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,9 @@ Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
 //Route::get('/user', [HomeController::class, 'index'])->name('user.index');
 
-Route::get('/posts', [ClientController::class, 'getAllPost'])->name('post.getAllPost');
+//Route::get('/posts', [ClientController::class, 'getAllPost'])->name('post.getAllPost');
 
-Route::get('/posts/{id}', [ClientController::class, 'getPostById'])->name('post.getPostById');
+//Route::get('/posts/{id}', [ClientController::class, 'getPostById'])->name('post.getPostById');
 
 Route::get('/add-post', [ClientController::class, 'addPost'])->name('post.addPost');
 
@@ -48,4 +49,18 @@ Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('
 Route::get('/session/set', [SessionController::class, 'storeSessionData'])->name('session.store');
 
 Route::get('/session/remove', [SessionController::class, 'deleteSessionData'])->name('session.delete');
+
+Route::get('/posts', [PostController::class, 'getAllPost'])->name('post.getallpost');
+
+Route::get('/add-post', [PostController::class, 'addPost'])->name('post.add');
+
+Route::post('/add-post', [PostController::class, 'addPostSubmit'])->name('post.addsubmit');
+
+Route::get('/posts/{id}', [PostController::class, 'getPostById'])->name('post.getbyid');
+
+Route::get('/delete-post/{id}', [PostController::class, 'deletePost'])->name('post.delete');
+
+Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('post.edit');
+
+
 
