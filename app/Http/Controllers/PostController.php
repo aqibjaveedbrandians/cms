@@ -45,7 +45,24 @@ class PostController extends Controller
         ]);
         return back()->with('post_updated', 'Post Has Been Deleted Sucessfully');
     }
-
-
+    public function innerJoinCaluse(){
+        $request = DB::table('users')
+                       ->join('posts', 'users.id', '=', 'posts.user_id')
+                       ->select('users.name', 'posts.title', 'posts.body')
+                       ->get();
+        return $request;
+    }
+    public function leftJoinCaluse(){
+        $request = DB::table('users')
+                       ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+                       ->get();
+        return $request;
+    }
+    public function rightJoinCaluse(){
+        $request = DB::table('users')
+                       ->rightJoin('posts', 'users.id', '=', 'posts.user_id')
+                       ->get();
+        return $request;
+    }
 
 }
