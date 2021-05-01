@@ -70,5 +70,7 @@ Route::get('/left-join', [PostController::class, 'leftJoinCaluse'])->name('post.
 
 Route::get('/right-join', [PostController::class, 'rightJoinCaluse'])->name('post.rightjoin');
 
+Route::get('/all-posts', [PostController::class, 'getAllPostsUsingModel'])->name('post.getallpostsusingmodel');
+
 
 
