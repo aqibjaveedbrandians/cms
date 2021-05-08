@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaginationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,6 +72,8 @@ Route::get('/left-join', [PostController::class, 'leftJoinCaluse'])->name('post.
 Route::get('/right-join', [PostController::class, 'rightJoinCaluse'])->name('post.rightjoin');
 
 Route::get('/all-posts', [PostController::class, 'getAllPostsUsingModel'])->name('post.getallpostsusingmodel');
+
+Route::get('/users', [PaginationController::class, 'allUsers'])->name('post.allusers');
 
 Route::get('/test', function(){
     return view('test');
