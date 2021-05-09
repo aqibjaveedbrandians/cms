@@ -9,6 +9,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\MialController    ;
 use Illuminate\Support\Facades\Route;
 use App\PaymentGateway\Payment;
 
@@ -101,4 +102,4 @@ Route::get('/contact', function(){
 Route::get('/payment', function(){
     return Payment::process();
 });
-
+Route::get('/send-email', [MialController::class, 'sendEmail']);
