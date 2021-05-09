@@ -24,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
+Route::get('/locale/{locale}', function($locale){
+    App::setLocale($locale);
+    return view('locale');
+});
+
 //Route::get('/home/{name?}', [HomeController::class, 'index'])->name('home.index');
 
 //Route::get('/user', [HomeController::class, 'index'])->name('user.index');
