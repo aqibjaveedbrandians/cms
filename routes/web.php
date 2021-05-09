@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,6 +75,10 @@ Route::get('/right-join', [PostController::class, 'rightJoinCaluse'])->name('pos
 Route::get('/all-posts', [PostController::class, 'getAllPostsUsingModel'])->name('post.getallpostsusingmodel');
 
 Route::get('/users', [PaginationController::class, 'allUsers'])->name('post.allusers');
+
+Route::get('/upload', [UploadController::class, 'uploadForm'])->name('upload.uploadform');
+
+Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload.uploadfile');
 
 Route::get('/test', function(){
     return view('test');
