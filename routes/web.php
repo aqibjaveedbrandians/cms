@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
+use App\PaymentGateway\Payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +97,8 @@ Route::get('/about', function(){
 });
 Route::get('/contact', function(){
     return view('contact');
+});
+Route::get('/payment', function(){
+    return Payment::process();
 });
 
